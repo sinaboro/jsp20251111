@@ -57,6 +57,17 @@ public class MemberDAO {
 		
 		try {
 			
+			con = getConnection();  //디비연결
+			pstmt = con.prepareStatement(sql); //sql 구문 전송.. sql 에러있는 없니 체크?
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();  //실행 및 결과 반환
+			
+			if(rs.next()) {
+				//가져올 데이타 있니?
+			}
+			
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
