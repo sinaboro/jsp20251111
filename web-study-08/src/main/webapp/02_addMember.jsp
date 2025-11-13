@@ -14,6 +14,8 @@
 	String sql = "insert into member values(?, ?, ?, ?, ?, ?)";
 %>    
 
+<html>
+	<body>
 <%
 	//한글처리-깨짐 방지
 	request.setCharacterEncoding("utf-8");
@@ -59,3 +61,9 @@
 	}
 	
 %>
+	<h3>회원 가입 성공</h3>
+	<a href="01_allMember.jsp">회원 전체 목록 보기</a>
+	
+	</body>
+</html>
+
