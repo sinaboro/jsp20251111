@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../script/member.js"></script>
+<script type="text/javascript" src="script/member.js"></script>
 </head>
 <body>
 	<h2>로그인</h2>

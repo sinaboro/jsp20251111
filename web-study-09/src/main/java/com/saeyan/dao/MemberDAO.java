@@ -2,6 +2,9 @@ package com.saeyan.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /*
  * DB연결을 담당하는 클래스
@@ -42,4 +45,31 @@ public class MemberDAO {
 		
 		return con;
 	}
+	
+	//사용자 인증시 사용하는 메소드
+	public int userCheck(String userid, String pwd) {
+		int result = -1;
+		
+		String sql = "select pwd from member where userid =  ?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				pstmt.close();
+				con.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return 0;
+	}
+	
 }
