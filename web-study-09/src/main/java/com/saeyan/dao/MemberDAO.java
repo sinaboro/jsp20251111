@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.saeyan.dto.MemberVO;
+
 /*
  * DB연결을 담당하는 클래스
  * 싱글톤으로 객체 하나만 생성해서 공유
@@ -47,8 +49,8 @@ public class MemberDAO {
 	}
 	
 	//사용자 인증시 사용하는 메소드
-	public int userCheck(String userid, String pwd) {
-		int result = -1;
+	public boolean userCheck(String userid, String pwd) {
+		boolean result = false;
 		
 		String sql = "select pwd from member where userid =  ?";
 		Connection con = null;
@@ -63,10 +65,11 @@ public class MemberDAO {
 			
 			rs = pstmt.executeQuery();  //실행 및 결과 반환
 			
-			if(rs.next()) {
-				//가져올 데이타 있니?
-			}
-			
+			if(rs.next()) { //가져올 데이타 있니?
+				if(rs.getString("pwd") != null && rs.getString("pwd").equals(pwd)) {
+					result = true;
+				}
+			}			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -80,7 +83,61 @@ public class MemberDAO {
 			}
 		}
 		
-		return 0;
-	}
+		return result;
+	}  // end userCheck
 	
+	//아이디로 회원 정보 가져오는 메소드
+	public MemberVO getMember(String userid) {
+		
+		MemberVO mvo = null;		
+		String sql = "select * from member where userid = ?";
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();			
+			pstmt = con.prepareStatement(sql);	
+			
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mvo.setName(rs.getString("name"));
+				mvo.setUserid(rs.getString("userid"));
+				mvo.setPwd(rs.getString("pwd"));
+				mvo.setEmail(rs.getString("email"));
+				mvo.setPhone(rs.getString("phone"));
+				mvo.setAdmin(rs.getInt("admin"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				pstmt.close();
+				con.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return mvo;
+		
+	} //end getMember
 }
+
+
+
+
+
+
+
+
+
+
+
+
