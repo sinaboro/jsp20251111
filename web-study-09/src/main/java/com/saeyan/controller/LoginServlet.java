@@ -44,7 +44,6 @@ public class LoginServlet extends HttpServlet {
 		
 		if(result == true) {
 			MemberVO mvo = mdao.getMember(userid);
-			System.out.println(mvo);
 			//로그인 성공한 somi(예시) 정보를 session저장
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", mvo);
