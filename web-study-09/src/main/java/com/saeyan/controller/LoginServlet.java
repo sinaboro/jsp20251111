@@ -44,12 +44,12 @@ public class LoginServlet extends HttpServlet {
 		
 		if(result == true) {
 			MemberVO mvo = mdao.getMember(userid);
-			
+			System.out.println(mvo);
 			//로그인 성공한 somi(예시) 정보를 session저장
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", mvo);
 			request.setAttribute("message", "로그인 성공했습니다.");
-			url = "main.jsp";
+			url = "member/main.jsp";
 		}else {
 			request.setAttribute("message", "로그인 실패했습니다.");
 		}

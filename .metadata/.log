@@ -1500,3 +1500,6 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.lsp4e 1 0 2025-11-14 09:13:40.864
 !MESSAGE [Info]	Typescript Server version info: {version=5.7.3, source=user-setting}
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-11-14 10:14:18.752
+!MESSAGE [Info]	ESLint server running in node v22.13.1

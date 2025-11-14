@@ -90,7 +90,7 @@ public class MemberDAO {
 	//아이디로 회원 정보 가져오는 메소드
 	public MemberVO getMember(String userid) {
 		
-		MemberVO mvo = null;		
+		MemberVO mvo = new MemberVO();		
 		String sql = "select * from member where userid = ?";
 		
 		Connection con = null;
@@ -125,7 +125,7 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
+		System.out.println("getMember : " + mvo);
 		return mvo;
 		
 	} //end getMember
