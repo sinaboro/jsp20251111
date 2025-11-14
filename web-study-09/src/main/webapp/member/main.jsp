@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="logout.do">
+	<form action="logout.do" >
 		<table>
 			<tr>
 				<td>안녕하세요. ${loginUser.name}(${loginUser.userid })님</td>
