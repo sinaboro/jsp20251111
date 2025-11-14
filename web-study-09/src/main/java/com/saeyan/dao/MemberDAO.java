@@ -50,6 +50,7 @@ public class MemberDAO {
 	
 	//사용자 인증시 사용하는 메소드
 	public boolean userCheck(String userid, String pwd) {
+	
 		boolean result = false;
 		
 		String sql = "select pwd from member where userid =  ?";
@@ -59,7 +60,7 @@ public class MemberDAO {
 		
 		try {
 			
-			con = getConnection();  //디비연결
+			con = this.getConnection();  //디비연결
 			pstmt = con.prepareStatement(sql); //sql 구문 전송.. sql 에러있는 없니 체크?
 			pstmt.setString(1, userid);
 			
