@@ -166,6 +166,42 @@ public class MemberDAO {
 		
 		return result;	
 	} //end confirmID
+
+	public int insertMember(MemberVO mvo) {
+
+		int result = -1;
+		
+		String sql = "insert into member values(?,?,?,?,?,?)";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+				
+		try {
+			con = this.getConnection();  //디비연결
+			pstmt = con.prepareStatement(sql); //sql 구문 전송.. sql 에러있는 없니 체크?
+			pstmt.setString(1, mvo.getName());
+			pstmt.setString(2, mvo.getUserid());
+			pstmt.setString(3, mvo.getPwd());
+			pstmt.setString(4, mvo.getEmail());
+			pstmt.setString(5, mvo.getPhone());
+			pstmt.setInt(6, mvo.getAdmin());
+			
+			result = pstmt.executeUpdate();  //실행 및 결과 반환			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				con.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		} //end finally
+		
+		return result;	
+	} // end insertMember
+	
+	
 }
 
 
