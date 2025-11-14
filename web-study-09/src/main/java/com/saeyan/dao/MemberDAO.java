@@ -129,6 +129,43 @@ public class MemberDAO {
 		return mvo;
 		
 	} //end getMember
+
+	//result : -1 아이디 사용가능
+	//result : 1 아이디 사용불가(중복)
+	public int confirmID(String userid) {
+		
+		int result = -1;
+		
+		String sql = "select userid from member where userid =  ?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = this.getConnection();  //디비연결
+			pstmt = con.prepareStatement(sql); //sql 구문 전송.. sql 에러있는 없니 체크?
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();  //실행 및 결과 반환
+			
+			if(rs.next()) { //가져올 데이타 있니?
+				result = 1;
+			}			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				pstmt.close();
+				con.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;	
+	} //end confirmID
 }
 
 
