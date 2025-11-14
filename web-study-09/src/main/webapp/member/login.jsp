@@ -31,8 +31,12 @@
 			</tr>
 			
 			<tr>
-				<td colspan="2">${message}</td>
+				<td colspan="2" style="color:red" >${message}</td>				
 			</tr>
+			
+			<%-- <tr>
+				<td colspan="2" style="color:red" ><%=request.getAttribute("message") %></td>
+			</tr> --%>
 		</table>
 	</form>
 </body>
