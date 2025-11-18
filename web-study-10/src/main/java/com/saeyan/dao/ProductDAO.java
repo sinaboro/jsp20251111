@@ -194,12 +194,10 @@ public class ProductDAO {
 			DBManager.close(con, pstmt);
 		}
 	} //end updateProduct
-	
-	
-	
-	
-	
-	
+
+	public void deleteProduct(int code) {
+		
+	} //end deleteProduct
 	
 	
 	
