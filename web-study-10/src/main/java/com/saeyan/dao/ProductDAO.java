@@ -78,6 +78,8 @@ public class ProductDAO {
 		return list;
 	} //end selectAllProuducts
 
+	
+	//데이타 추가
 	public void insertProduct(ProductVO vo) {
 		
 		Connection con = null;
@@ -108,7 +110,7 @@ public class ProductDAO {
 			DBManager.close(con, pstmt);
 		}
 		
-	}
+	} //end insertProduct
 	
 	
 	

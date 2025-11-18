@@ -67,6 +67,16 @@ public class ProductWriteServlet extends HttpServlet {
  		
  		//ProductDAO클래스 insertProduct호출
 		pdao.insertProduct(vo);
+	
+		//post-> redirect -> get (PRG 패턴)
+		response.sendRedirect("productList.do");
 	}
 
 }
+
+
+
+
+
+
+
