@@ -111,6 +111,58 @@ public class ProductDAO {
 		}
 		
 	} //end insertProduct
+
+	public ProductVO selectProductByCode(String code) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from product where code = ?";
+		ProductVO vo = new ProductVO();
+		
+		try {
+			
+			//1. DB연결
+			con = DBManager.getConnection();
+			
+			//2. sql전송
+			pstmt = con.prepareStatement(sql);
+			
+			//3. sql 맵핑
+			pstmt.setInt(1, Integer.parseInt(code));
+			
+			//4. sql 실행
+			rs = pstmt.executeQuery();
+			
+			/*  사용권장 - 추천
+			if(rs.next()) {
+				vo.setCode(rs.getInt("code") );
+				vo.setName(rs.getString("name"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setPictureUrl(rs.getString("pictureurl"));
+				vo.setDescription(rs.getString("description"));
+			}
+			*/
+
+			//비추천
+			if(rs.next()) {
+				vo.setCode(rs.getInt(1) );
+				vo.setName(rs.getString(2));
+				vo.setPrice(rs.getInt(3));
+				vo.setPictureUrl(rs.getString(4));
+				vo.setDescription(rs.getString(5));
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt);
+		}
+		
+		return vo;
+	} //end selectProductByCode
 	
 	
 	
