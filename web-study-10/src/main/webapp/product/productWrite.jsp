@@ -11,7 +11,7 @@
 <body>
 	<div id="wrap" align="center">
 		<h1>상품 등록 - 관리자 페이지</h1>
-		<form method="post" name="frm" enctype="multipart/form-data" >
+		<form action="productWrite.do" method="post" name="frm" enctype="multipart/form-data" >
 			<table>
 				<tr>
 					<th>상 품 명</th>
