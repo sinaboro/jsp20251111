@@ -158,11 +158,42 @@ public class ProductDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt);
+			DBManager.close(con, pstmt, rs);
 		}
 		
 		return vo;
 	} //end selectProductByCode
+
+	public void updateProduct(ProductVO vo) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update product set name=?, price=?, pictureurl=?, "
+				+ " description=? where code = ?";
+		
+		try {
+			
+			//1. DB연결
+			con = DBManager.getConnection();
+			
+			//2. sql전송
+			pstmt = con.prepareStatement(sql);
+			
+			//3. sql 맵핑
+			pstmt.setString(1, vo.getName());
+			pstmt.setInt(2, vo.getPrice());
+			pstmt.setString(3, vo.getPictureUrl());
+			pstmt.setString(4, vo.getDescription());
+			pstmt.setInt(5, vo.getCode());
+			
+			//4. sql 실행
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt);
+		}
+	} //end updateProduct
 	
 	
 	
