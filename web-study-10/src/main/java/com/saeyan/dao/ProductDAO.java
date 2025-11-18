@@ -197,6 +197,30 @@ public class ProductDAO {
 
 	public void deleteProduct(int code) {
 		
+		Connection con = null;
+		
+		PreparedStatement pstmt = null;
+		String sql = "delete from  product where code = ?";
+		
+		try {
+			
+			//1. DB연결
+			con = DBManager.getConnection();
+			
+			//2. sql전송
+			pstmt = con.prepareStatement(sql);
+			
+			//3. sql 맵핑
+			pstmt.setInt(1, code);
+			
+			//4. sql 실행
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt);
+		}
 	} //end deleteProduct
 	
 	
