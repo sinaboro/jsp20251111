@@ -35,7 +35,16 @@ public class ProductDeleteServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
+		//1. code(기본키) 획득
+		int code = Integer.parseInt(request.getParameter("code"));
+		
+		//2. DB에서 code값 삭제
+		ProductDAO pdao = ProductDAO.getInstance();
+		pdao.deleteProduct(code);
+		
+		//3. redirect.....productList.do
+		response.sendRedirect("productList.do");
 	}
 
 }
