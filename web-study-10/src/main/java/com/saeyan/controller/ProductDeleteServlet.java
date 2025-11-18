@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.saeyan.dao.ProductDAO;
+import com.saeyan.dto.ProductVO;
 
 @WebServlet("/productDelete.do")
 public class ProductDeleteServlet extends HttpServlet {
@@ -19,14 +20,18 @@ public class ProductDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//1. code(기본키) 획득
-		int code = Integer.parseInt(request.getParameter("code"));
+		String code = request.getParameter("code");
 		
 		//2. DB에서 code 해당하는 값 삭제
 		ProductDAO pdao = ProductDAO.getInstance();
-		pdao.deleteProduct(code);
+		ProductVO vo = pdao.selectProductByCode(code);
 		
-		//3. redirect로 화면 전환
-	    response.sendRedirect("productList.do");
+		//3. request.setAttubte() 저장
+	    request.setAttribute("product", vo);
+	    
+	    //4. forword
+	    request.getRequestDispatcher("product/productDelete.jsp")
+	    	.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
