@@ -11,16 +11,14 @@ public class ActionFactory {
 	public static ActionFactory getInstance() {
 		return instance;
 	}
-	
+	                           //board_insert
 	public Action getAction(String command) {
+		
 		Action action  = null;
 		
 		System.out.println("ActionFactory : " + command);
 		
 		//조건문
-		if(command.equals("board_list")) {
-			action = new BoardList();
-		}
 		
 		return action;
 	}

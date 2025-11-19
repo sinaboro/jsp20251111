@@ -16,9 +16,10 @@ public class BoardServlet extends HttpServlet {
     public BoardServlet() {
     }
 
+    //localhost:8080/web-study-10?command=board_list
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String command = request.getParameter("command");
+		String command = request.getParameter("command");  //board_insert
 		
 		System.out.println("BoardServlet에서 요청을 받음을 확인 : " + command);
 		
