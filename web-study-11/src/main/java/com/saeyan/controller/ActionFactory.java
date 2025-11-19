@@ -12,7 +12,7 @@ public class ActionFactory {
 	public static ActionFactory getInstance() {
 		return instance;
 	}
-	                           //board_insert
+	                           //board_list
 	public Action getAction(String command) {
 		
 		Action action  = null;

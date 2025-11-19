@@ -90,8 +90,8 @@ public class BoardDAO {
 		        vo.setEmail(rs.getString("email"));
 		        vo.setTitle(rs.getString("title"));
 		        vo.setContent(rs.getString("content"));
-		        vo.setReadCount(rs.getInt("readcount"));
-		        vo.setWriteDate(rs.getTimestamp("writedate"));
+		        vo.setReadcount(rs.getInt("readcount"));
+		        vo.setWritedate(rs.getTimestamp("writedate"));
 		        
 		        // 완성된 VO를 리스트에 추가
 		        list.add(vo);

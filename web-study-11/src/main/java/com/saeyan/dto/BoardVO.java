@@ -22,8 +22,8 @@ public class BoardVO {
 	private String pass;
 	private String title;
 	private String content;
-	private int readCount;
-	private Timestamp writeDate;
+	private int readcount;
+	private Timestamp writedate;
 	
 	public int getNum() {
 		return num;
@@ -61,23 +61,24 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getReadCount() {
-		return readCount;
+	public int getReadcount() {
+		return readcount;
 	}
-	public void setReadCount(int readCount) {
-		this.readCount = readCount;
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
 	}
-	public Timestamp getWriteDate() {
-		return writeDate;
+	public Timestamp getWritedate() {
+		return writedate;
 	}
-	public void setWriteDate(Timestamp writeDate) {
-		this.writeDate = writeDate;
+	public void setWritedate(Timestamp writedate) {
+		this.writedate = writedate;
 	}
 	
 	@Override
 	public String toString() {
 		return "BoardVO [num=" + num + ", name=" + name + ", email=" + email + ", pass=" + pass + ", title=" + title
-				+ ", content=" + content + ", readCount=" + readCount + ", writeDate=" + writeDate + "]";
+				+ ", content=" + content + ", readcount=" + readcount + ", writedate=" + writedate + "]";
 	}
+	
 	
 }
