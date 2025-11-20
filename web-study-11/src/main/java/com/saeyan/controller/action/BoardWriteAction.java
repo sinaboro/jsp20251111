@@ -36,6 +36,8 @@ public class BoardWriteAction implements Action{
 		// Post->Redirect-> Get(PRG 패턴)
 		
 		response.sendRedirect("BoardServlet?command=board_list");
+		
+//		new BoardListAction().execute(request, response);
 	}
 
 }
