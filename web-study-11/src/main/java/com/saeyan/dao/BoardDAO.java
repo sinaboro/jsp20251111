@@ -176,9 +176,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}finally {
 			DBManager.close(con, pstmt, rs);
-		}
-		
-		
+		}		
 		return vo;
 	} //end selectOneByNum
 }
