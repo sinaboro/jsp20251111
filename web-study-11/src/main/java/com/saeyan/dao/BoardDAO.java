@@ -140,8 +140,46 @@ public class BoardDAO {
 
 	public BoardVO selectOneByNum(int num) {
 		
+		BoardVO vo = new BoardVO();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from board where num = ?";
+		try {
+			
+			con = DBManager.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+//				rs.getInt("num");
+//				rs.getString("name");
+//				rs.getString("pass");
+//				rs.getString("email");
+//				rs.getString("title");
+//				rs.getString("content");
+//				rs.getInt("readcount");
+//				rs.getTimestamp("writedate");
+				
+				vo.setNum(rs.getInt("num"));
+				vo.setName(rs.getString("name"));
+				vo.setPass(rs.getString("pass"));
+				vo.setEmail(rs.getString("email"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setReadcount(rs.getInt("readcount"));
+				vo.setWritedate(rs.getTimestamp("writedate"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
 		
-		return null;
+		
+		return vo;
 	} //end selectOneByNum
 }
 
