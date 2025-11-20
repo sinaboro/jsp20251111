@@ -110,6 +110,12 @@ public class BoardDAO {
 
 	}
 
+	public void insertBoard(BoardVO vo) {
+		
+		
+		
+	}
+
 	
 }
 

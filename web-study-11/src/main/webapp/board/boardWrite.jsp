@@ -12,7 +12,8 @@
 <body>
 	<div id="wrap" align="center">
 		<h1>게시글 등록</h1>
-		<form name="frm" method="get" action="BoardServlet?command=board_write">			
+		<form name="frm" method="post" action="BoardServlet">
+		<input type="hidden" name="command" value="board_write">			
 			<table>
 				<tr>
 					<th>작성자</th>
