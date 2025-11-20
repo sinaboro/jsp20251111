@@ -139,7 +139,8 @@ public class BoardDAO {
 	} //end insertBoard
 
 	public BoardVO selectOneByNum(int num) {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	} //end selectOneByNum
 }
