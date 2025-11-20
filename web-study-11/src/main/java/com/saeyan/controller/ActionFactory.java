@@ -2,6 +2,7 @@ package com.saeyan.controller;
 
 import com.saeyan.controller.action.Action;
 import com.saeyan.controller.action.BoardListAction;
+import com.saeyan.controller.action.BoardViewAction;
 import com.saeyan.controller.action.BoardWriteAction;
 import com.saeyan.controller.action.BoardWriteFormAction;
 
@@ -28,6 +29,8 @@ public class ActionFactory {
 			action = new BoardWriteFormAction();
 		}else if(command.equals("board_write")) {
 			action = new BoardWriteAction();
+		}else if(command.equals("board_view")) {
+			action = new BoardViewAction();
 		}
 		
 		return action;
