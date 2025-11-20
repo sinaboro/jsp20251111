@@ -110,40 +110,7 @@ public class BoardDAO {
 
 	}
 
-	public BoardVO selectOneByNum() {
-		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = "select * from board where num = 1";
-		
-		BoardVO vo = new BoardVO();
-		
-		try {
-			
-			con = DBManager.getConnection();
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				 vo.setNum(rs.getInt("num"));
-		        vo.setName(rs.getString("name"));
-		        vo.setPass(rs.getString("pass"));
-		        vo.setEmail(rs.getString("email"));
-		        vo.setTitle(rs.getString("title"));
-		        vo.setContent(rs.getString("content"));
-		        vo.setReadcount(rs.getInt("readcount"));
-		        vo.setWritedate(rs.getTimestamp("writedate"));
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBManager.close(con, pstmt, rs);
-		}
-		return vo;
-	}
+	
 }
 
 
