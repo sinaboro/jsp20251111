@@ -25,15 +25,15 @@
 				<th>작성일</th>
 				<th>조회</th>
 			</tr>
-			<c:forEach var="board" items="${boardList }">
-				<tr class="record">
-					<td>${board.num }</td>
-					<td>${board.title }</td>		
-					<td>${board.name}</td>
-					<td><fmt:formatDate value="${board.writedate }" pattern="yyyy-MM-dd"/></td>
-					<td>${board.readcount}</td>
-				</tr>
-			</c:forEach>
+		
+			<tr class="record">
+				<td>${board.num }</td>
+				<td>${board.title }</td>		
+				<td>${board.name}</td>
+				<td><fmt:formatDate value="${board.writedate }" pattern="yyyy-MM-dd"/></td>
+				<td>${board.readcount}</td>
+			</tr>
+		
 		</table>
 	</div>
 </body>

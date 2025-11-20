@@ -1,6 +1,7 @@
 package com.saeyan.controller;
 
 import com.saeyan.controller.action.Action;
+import com.saeyan.controller.action.BoardDetailAction;
 import com.saeyan.controller.action.BoardListAction;
 
 public class ActionFactory {
@@ -22,6 +23,8 @@ public class ActionFactory {
 		//조건문
 		if(command.equals("board_list")) {
 			action =  new BoardListAction();
+		}else if(command.equals("boardDetail")) {
+			action = new BoardDetailAction();
 		}
 		
 		return action;
