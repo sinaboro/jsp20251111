@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/shopping.css">
+<script type="text/javascript" src="script/board.js"></script>
 </head>
 <body>
 	<h1>비밀번호 확인</h1>
@@ -19,7 +21,7 @@
 		</table>
 		<br>
 		<input type="submit" value="확인" onclick="return passCheck()">
-		<br><br>${message} 
+		<br>${message} 
 	</form>
 </body>
 </html>

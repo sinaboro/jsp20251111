@@ -201,9 +201,33 @@ public class BoardDAO {
 			e.printStackTrace();
 		}finally {
 			DBManager.close(con, pstmt);
+		} // end try
+		
+	} //end updateReadCount
+
+	public void deleteBoard(int num) {
+		String sql = "delete from board where num = ?";
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con = DBManager.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, num);
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt);
 		}
 		
-	}
+	} // end deleteBoard
+	
 }
 
 
