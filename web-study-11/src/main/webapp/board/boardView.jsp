@@ -38,8 +38,8 @@
 		<br> <br> 
 		<input type="button" value="게시글 수정" >
 		<input type="button" value="게시글 삭제" >
-		<input type="button" value="게시글 리스트">
-		<input type="button" value="게시글 등록" >
+		<input type="button" value="게시글 리스트" onclick="location.href='BoardServlet?command=board_list'">
+		<input type="button" value="게시글 등록"  onclick="location.href='BoardServlet?command=board_write_form'">
 	</div>
 </body>
 </html>

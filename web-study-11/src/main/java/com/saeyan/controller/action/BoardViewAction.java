@@ -23,7 +23,10 @@ public class BoardViewAction implements Action{
 		BoardDAO dao =  BoardDAO.getInstance();
 		BoardVO vo =  dao.selectOneByNum(num);
 		
-		//3. boardView 값 전달 하기
+		//3. 조회수 증가
+		dao.updateReadCount(num);
+		
+		//4. boardView 값 전달 하기
 		request.setAttribute("board", vo);
 		
 		String url = "board/boardView.jsp";
