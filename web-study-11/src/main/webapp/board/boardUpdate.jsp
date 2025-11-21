@@ -42,10 +42,10 @@
 				</tr>
 			</table>
 			<br>
-			<br> <input type="submit" value="등록"
-				onclick="return boardCheck()"> <input type="reset"
-				value="다시 작성"> <input type="button" value="목록"
-				onclick="location.href='BoardServlet?command=board_list'">
+			<br> 
+			<input type="submit" value="등록" onclick="return boardCheck()"> 
+			<input type="reset" value="다시 작성"> 
+			<input type="button" value="목록" onclick="location.href='BoardServlet?command=board_list'">
 		</form>
 	</div>
 </body>

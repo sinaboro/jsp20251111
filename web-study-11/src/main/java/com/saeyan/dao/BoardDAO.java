@@ -227,6 +227,37 @@ public class BoardDAO {
 		}
 		
 	} // end deleteBoard
+
+	public void updateBoard(BoardVO vo) {
+		
+		String sql = "update board set name=?, pass=?, "
+				+ " email=?, title=?, content=? where num=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con = DBManager.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPass());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getTitle());
+			pstmt.setString(5, vo.getContent());
+			pstmt.setInt(6, vo.getNum());
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt);
+		}
+		
+	}
+
+	
 	
 }
 
